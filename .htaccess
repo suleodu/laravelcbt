@@ -1,0 +1,18 @@
+RewriteEngine On
+
+# Redirect all non-https links to https
+# RewriteCond %{REQUEST_SCHEME} HTTP$ [NC]
+#RewriteCond %{HTTPS} !on [NC]
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php)
+RewriteRule ^(.+)$ index.php?$1 [L]
+
+#RewriteEngine On
+#RewriteBase /public
+#
+#RewriteCond %{THE_REQUEST} /index [NC]    
+#RewriteRule ^ / [R=302,L,NE]
+
